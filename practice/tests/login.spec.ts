@@ -18,9 +18,8 @@ test.describe('Verify login feature', () => {
      * Initialize the expected page.
      */
     const loginPage = new LoginPage(page);
+    
     await loginPage.navigate();
-
-    // Hardcode the valid phone number for now
     await loginPage.login(config.VALID_PHONE);
     await loginPage.inputOtp(config.VALID_OTP);
   });

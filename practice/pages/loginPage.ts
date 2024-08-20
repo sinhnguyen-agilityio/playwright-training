@@ -2,9 +2,9 @@ import { expect, Page } from '@playwright/test';
 import { config } from '@config/index';
 
 export class LoginPage {
-  private page: Page;
-  loginUrl = config.HOST + '/login';
-  homeUrl = config.HOST + '/accounts'
+  readonly page: Page;
+  readonly loginUrl: string = config.HOST + '/login';
+  readonly homeUrl: string = config.HOST + '/accounts';
 
   constructor(page: Page) {
     this.page = page;
@@ -39,14 +39,14 @@ export class LoginPage {
 
   async inputOtp(otp: string) {
     const verifyOtpPopup = this.page.getByLabel('modal-title-pin-modal');
-    const nextBtn = this.page.getByRole('button', {name: 'next'} );
+    const nextBtn = this.page.getByRole('button', { name: 'next' });
     const welcomeBackLabel = this.page.getByText('Welcome back!');
-    const otpInput0 = this.page.getByTestId('input-0')
+    const otpInput0 = this.page.getByTestId('input-0');
 
     await expect(verifyOtpPopup).toBeVisible();
-    await expect(nextBtn).toBeEnabled({enabled: false});
+    await expect(nextBtn).toBeEnabled({ enabled: false });
 
-    await otpInput0.pressSequentially('123456');
+    await otpInput0.pressSequentially(otp);
     await expect(nextBtn).toBeEnabled();
 
     await this.page.waitForURL(this.homeUrl);

@@ -1,4 +1,4 @@
-import { expect, Page } from '@playwright/test';
+import { Page } from '@playwright/test';
 import { config } from '@config/index';
 
 export class HomePage {
@@ -9,7 +9,9 @@ export class HomePage {
     this.page = page;
   }
 
-  /** navigate function */
+  /**
+   * navigate function
+   * */
   async navigate() {
     await this.page.goto(this.url);
   }
