@@ -13,6 +13,7 @@
       "@pages/*": ["pages/*"],
       "@tests/*": ["tests/*"],
       "@config/*": ["config/*"],
+      "@utils/*": ["utils/*"],
     }
   },
   "include": [

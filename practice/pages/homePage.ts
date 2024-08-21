@@ -1,18 +1,22 @@
-import { Page } from '@playwright/test';
+import { expect, Page } from '@playwright/test';
 import { config } from '@config/index';
 
 export class HomePage {
   private page: Page;
-  private url: string = config.HOST + '/accounts'
 
   constructor(page: Page) {
     this.page = page;
   }
 
-  /**
-   * navigate function
-   * */
-  async navigate() {
-    await this.page.goto(this.url);
+  async viewAccounts() {
+    const savingAccountEl = this.page.locator('div').filter({ hasText: 'Savings'});
+
+    await expect(savingAccountEl).toBeVisible();
+  }
+
+  async viewCards() {
+    const physicalCardEl = this.page.locator('div').filter({ hasText: 'Physical Card'});
+
+    await expect(physicalCardEl).toBeVisible();
   }
 }

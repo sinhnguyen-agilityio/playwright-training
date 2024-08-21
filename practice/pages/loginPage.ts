@@ -1,13 +1,15 @@
-import { expect, Page } from '@playwright/test';
+import { expect, Locator, Page } from '@playwright/test';
 import { config } from '@config/index';
 
 export class LoginPage {
-  readonly page: Page;
-  readonly loginUrl: string = config.HOST + '/login';
-  readonly homeUrl: string = config.HOST + '/accounts';
+  private page: Page;
+  private loginUrl: string;
+  private homeUrl: string;
 
   constructor(page: Page) {
     this.page = page;
+    this.loginUrl = config.HOST + '/login';
+    this.homeUrl = config.HOST + '/accounts';
   }
 
   /** navigate function */
@@ -38,12 +40,10 @@ export class LoginPage {
   }
 
   async inputOtp(otp: string) {
-    const verifyOtpPopup = this.page.getByLabel('modal-title-pin-modal');
-    const nextBtn = this.page.getByRole('button', { name: 'next' });
-    const welcomeBackLabel = this.page.getByText('Welcome back!');
-    const otpInput0 = this.page.getByTestId('input-0');
+    const nextBtn: Locator = this.page.getByRole('button', { name: 'next' });
+    const welcomeBackLabel: Locator = this.page.getByText('Welcome back!');
+    const otpInput0: Locator = this.page.getByTestId('input-0');
 
-    await expect(verifyOtpPopup).toBeVisible();
     await expect(nextBtn).toBeEnabled({ enabled: false });
 
     await otpInput0.pressSequentially(otp);

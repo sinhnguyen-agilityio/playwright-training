@@ -1,6 +1,6 @@
-import { LoginPage } from '@pages/loginPage'
 import { test } from '@playwright/test';
 import { config } from '@config/index'
+import { PageManager } from '@pages/pageManager';
 
 test.describe('Verify login feature', () => {
   /**
@@ -17,10 +17,10 @@ test.describe('Verify login feature', () => {
     /**
      * Initialize the expected page.
      */
-    const loginPage = new LoginPage(page);
+    const pm = new PageManager(page);
     
-    await loginPage.navigate();
-    await loginPage.login(config.VALID_PHONE);
-    await loginPage.inputOtp(config.VALID_OTP);
+    await pm.onLoginPage().navigate();
+    await pm.onLoginPage().login(config.VALID_PHONE);
+    await pm.onLoginPage().inputOtp(config.VALID_OTP);
   });
 });

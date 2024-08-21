@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { HomePage } from '@pages/homePage';
+import { PageManager } from '@pages/pageManager';
 
 test.describe('Verify home page', () => {
   test.use({
@@ -10,11 +10,14 @@ test.describe('Verify home page', () => {
     /**
      * Initialize the expected page.
      */
-    const homePage = new HomePage(page);
-    await homePage.navigate();
+    const pm = new PageManager(page);
+    await pm.onNavigationPage().navigateTo('Home');
 
     const welcomeBackLabel = page.getByText('Welcome back!');
 
     await expect(welcomeBackLabel).toBeVisible();
+
+    await pm.onHomePage().viewCards();
+    await pm.onHomePage().viewAccounts();
   });
 });
