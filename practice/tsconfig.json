@@ -20,5 +20,7 @@
     "tests/**/*",
     "pages/**/*",
     "config/**/*"
-  ]
+  ],
+  "exclude": ["node_modules/**"],
+  "compileOnSave": false
 }

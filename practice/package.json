@@ -15,12 +15,31 @@
     "dotenv": "^16.4.5",
     "eslint": "^9.9.0",
     "globals": "^15.9.0",
+    "husky": "^9.1.5",
+    "lint-staged": "^15.2.9",
     "prettier": "3.3.3",
     "typescript": "^5.5.4",
     "typescript-eslint": "^8.2.0"
   },
   "scripts": {
     "lint": "npx eslint .",
-    "format": "npx prettier ."
+    "format": "npx prettier .",
+    "prepare": "husky install"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx}": [
+      "prettier --write",
+      "eslint --fix",
+      "git add"
+    ],
+    "*.{html,css,less,ejs}": [
+      "prettier --write",
+      "git add"
+    ]
   }
 }

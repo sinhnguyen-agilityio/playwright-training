@@ -1,5 +1,4 @@
 import { expect, Page } from '@playwright/test';
-import { config } from '@config/index';
 
 export class HomePage {
   private page: Page;
