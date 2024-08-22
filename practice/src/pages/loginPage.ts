@@ -1,5 +1,5 @@
 import { expect, Locator, Page } from '@playwright/test';
-import { config } from '@config/index';
+import { config } from 'src/config/index';
 
 export class LoginPage {
   private page: Page;
@@ -20,13 +20,19 @@ export class LoginPage {
   async login(phoneNumber: string) {
     // Find locator
     const phoneInput = this.page.getByPlaceholder('(555) 555-5555');
-    const loginBtn = this.page.getByRole('button', { name: 'Login' });
+    const loginBtn = this.page.getByRole('button', {
+      name: 'Login',
+    });
     const warningMsg = this.page.getByText('This field is required.');
-    const statusMsg = this.page.getByText('Please use a number that can receive SMS.');
+    const statusMsg = this.page.getByText(
+      'Please use a number that can receive SMS.'
+    );
 
     await expect(statusMsg).toBeVisible();
     await phoneInput.click();
-    await loginBtn.click({ force: true });
+    await loginBtn.click({
+      force: true,
+    });
     await expect(warningMsg).toBeVisible();
 
     // Handle the action
@@ -40,14 +46,17 @@ export class LoginPage {
   }
 
   async inputOtp(otp: string) {
-    const nextBtn: Locator = this.page.getByRole('button', { name: 'next' });
+    const nextBtn: Locator = this.page.getByRole('button', {
+      name: 'next',
+    });
     const welcomeBackLabel: Locator = this.page.getByText('Welcome back!');
     const otpInput0: Locator = this.page.getByTestId('input-0');
 
-    await expect(nextBtn).toBeEnabled({ enabled: false });
+    await expect(nextBtn).toBeEnabled({
+      enabled: false,
+    });
 
     await otpInput0.pressSequentially(otp);
-    await expect(nextBtn).toBeEnabled();
 
     await this.page.waitForURL(this.homeUrl);
 

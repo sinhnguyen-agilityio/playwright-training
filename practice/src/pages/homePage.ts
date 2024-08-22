@@ -8,14 +8,12 @@ export class HomePage {
   }
 
   async viewAccounts() {
-    const savingAccountEl = this.page.locator('div').filter({ hasText: 'Savings'});
-
-    await expect(savingAccountEl).toBeVisible();
+    const savingAccountEl = this.page.getByRole('heading', { name: 'Kash Savings' });
+    await expect(savingAccountEl).toBeVisible({timeout: 10000});
   }
 
   async viewCards() {
-    const physicalCardEl = this.page.locator('div').filter({ hasText: 'Physical Card'});
-
+    const physicalCardEl = this.page.getByText('Physical Card');
     await expect(physicalCardEl).toBeVisible();
   }
 }

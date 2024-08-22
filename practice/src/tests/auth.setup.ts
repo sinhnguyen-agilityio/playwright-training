@@ -1,5 +1,5 @@
 import { test as setup } from '@playwright/test';
-import { config } from '@config/index';
+import { config } from 'src/config/index';
 import { PageManager } from '@pages/pageManager';
 
 const authFile = '.auth/user.json';
@@ -13,5 +13,7 @@ setup('authenticate', async ({ page }) => {
   await pm.onLoginPage().inputOtp(config.VALID_OTP);
 
   // End of authentication steps.
-  await page.context().storageState({ path: authFile });
+  await page.context().storageState({
+    path: authFile,
+  });
 });

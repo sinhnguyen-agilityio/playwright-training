@@ -10,17 +10,13 @@
     "outDir": "dist",
     "baseUrl": ".",
     "paths": {
-      "@pages/*": ["pages/*"],
-      "@tests/*": ["tests/*"],
-      "@config/*": ["config/*"],
-      "@utils/*": ["utils/*"],
+      "@pages/*": ["src/pages/*"],
+      "@tests/*": ["src/tests/*"],
+      "@config/*": ["src/config/*"],
+      "@utils/*": ["src/utils/*"]
     }
   },
-  "include": [
-    "tests/**/*",
-    "pages/**/*",
-    "config/**/*"
-  ],
+  "include": ["src/tests/**/*", "src/pages/**/*", "src/config/**/*"],
   "exclude": ["node_modules/**"],
   "compileOnSave": false
 }

@@ -3,8 +3,8 @@ import { PageManager } from '@pages/pageManager';
 
 test.describe('Verify home page', () => {
   test.use({
-    storageState: '.auth/user.json' 
-  })
+    storageState: '.auth/user.json',
+  });
 
   test('Verify home page information!', async ({ page }) => {
     /**

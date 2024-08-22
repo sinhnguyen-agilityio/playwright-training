@@ -5,13 +5,15 @@ import { defineConfig, devices } from '@playwright/test';
  * https://github.com/motdotla/dotenv
  */
 import dotenv from 'dotenv';
-dotenv.config({ path: '.env'});
+dotenv.config({
+  path: '.env',
+});
 
 /**
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
-  testDir: './tests',
+  testDir: './src/tests',
   /* Run tests in files in parallel */
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
@@ -26,23 +28,32 @@ export default defineConfig({
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
     baseURL: 'https://dev-consumer-banking.agility.codes',
-    
+
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
   },
 
   /* Configure projects for major browsers */
   projects: [
-    { name: 'setup', testMatch: /.*\.setup\.ts/ },
+    {
+      name: 'setup',
+      testMatch: /.*\.setup\.ts/,
+    },
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'], baseURL: 'https://dev-consumer-banking.agility.codes' },
+      use: {
+        ...devices['Desktop Chrome'],
+        baseURL: 'https://dev-consumer-banking.agility.codes',
+      },
       dependencies: ['setup'],
     },
 
     {
       name: 'firefox',
-      use: { ...devices['Desktop Firefox'], baseURL: 'https://dev-consumer-banking.agility.codes' },
+      use: {
+        ...devices['Desktop Firefox'],
+        baseURL: 'https://dev-consumer-banking.agility.codes',
+      },
       dependencies: ['setup'],
     },
   ],

@@ -1,6 +1,6 @@
 import { Page } from '@playwright/test';
-import { NavigationItem } from '@utils/types';
-import { config } from '@config/index';
+import { NavigationItem } from 'src/utils/types';
+import { config } from 'src/config/index';
 
 export class NavigationPage {
   private page: Page;
