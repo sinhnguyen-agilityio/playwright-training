@@ -4,6 +4,12 @@ on:
     branches: [ main, master ]
   pull_request:
     branches: [ main, master ]
+env:
+  URL: https://dev-consumer-banking.agility.codes
+  API_ROUTE: https://dev-api-kash-banking.agility.codes/api/v1/
+  HOME_URL: https://dev-consumer-banking.agility.codes/accounts
+  VALID_PHONE: 2342340002,
+  VALID_OTP: 123456
 jobs:
   test:
     timeout-minutes: 60
