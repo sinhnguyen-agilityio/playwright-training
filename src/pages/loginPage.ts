@@ -45,6 +45,17 @@ export class LoginPage {
     await loginBtn.click();
   }
 
+  async verifyUserNotFound() {
+    const loginBtn = this.page.getByRole('button', {
+      name: 'Login',
+    });
+    const warningMsg = this.page.getByText('User not found in the system. Please check again.');
+
+     // Assert the result and status
+     await expect(warningMsg).toBeVisible();
+     await expect(loginBtn).toBeEnabled({enabled: false});
+  }
+
   async inputOtp(otp: string) {
     const nextBtn: Locator = this.page.getByRole('button', {
       name: 'next',
