@@ -17,7 +17,7 @@ export class TransferPage {
       name: 'Transfer',
       exact: true,
     });
-    this.subTitle = this.page.getByText('Between your Kash Consumer');
+    this.subTitle = this.page.getByText('Between your Agility Kash Consumer Banking or external bank accounts.');
     this.fromAccountDropdown = this.page
       .getByTestId('dropbox-dropdown')
       .locator('div', { hasText: 'From Account' })
