@@ -15,7 +15,15 @@ test.describe('Verify login feature', () => {
     const pm = new PageManager(page);
 
     await pm.onLoginPage().navigate();
-    await pm.onLoginPage().login(config.INVALID_PHONE);
+    await pm.onLoginPage().login(config.NOT_FOUND_PHONE);
     await pm.onLoginPage().verifyUserNotFound();
   });
+
+  test('Verify phone is invalid format', async ({page}) => {
+    const pm = new PageManager(page);
+
+    await pm.onLoginPage().navigate();
+    await pm.onLoginPage().login(config.INVALID_PHONE);
+    await pm.onLoginPage().verifyInvalidPhone();
+  })
 });

@@ -6,6 +6,7 @@
     "target": "es6",
     "noImplicitAny": true,
     "moduleResolution": "node",
+    "resolveJsonModule": true,
     "sourceMap": true,
     "outDir": "dist",
     "baseUrl": ".",
@@ -13,7 +14,8 @@
       "@pages/*": ["src/pages/*"],
       "@tests/*": ["src/tests/*"],
       "@config/*": ["src/config/*"],
-      "@utils/*": ["src/utils/*"]
+      "@utils/*": ["src/utils/*"],
+      "@auth/*": [".auth/*"],
     }
   },
   "include": ["src/tests/**/*", "src/pages/**/*", "src/config/**/*"],
