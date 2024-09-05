@@ -14,5 +14,11 @@ test.describe('Transfer Page', () => {
 
     await pm.onNavigationPage().navigateTo('Transfer');
     await pm.onTransferPage().transfer('Kash Savings', 'Kash Checking', 10, 'Instant');
+    await pm.onReviewTransferPage().confirmTransfer();
+    await pm.onTransferStatusPage().returnHome();
+    await pm.onNavigationPage().navigateTo('Transfer');
+    await pm.onTransferPage().transfer('Kash Checking', 'Kash Savings', 10, 'Instant');
+    await pm.onReviewTransferPage().confirmTransfer();
+    await pm.onTransferStatusPage().returnHome();
   });
 });
