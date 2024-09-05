@@ -3,6 +3,8 @@ import { LoginPage } from './loginPage';
 import { HomePage } from './homePage';
 import { NavigationPage } from './navigationPage';
 import { TransferPage } from './transferPage';
+import { ReviewTransferPage } from './reviewTransferPage';
+import { TransferStatusPage } from './transferStatusPage';
 
 export class PageManager {
   private readonly page: Page;
@@ -10,6 +12,8 @@ export class PageManager {
   private readonly homePage: HomePage;
   private readonly navigationPage: NavigationPage;
   private readonly transferPage: TransferPage;
+  private readonly reviewTransferPage: ReviewTransferPage;
+  private readonly transferStatusPage: TransferStatusPage;
 
   constructor(page: Page) {
     this.page = page;
@@ -17,6 +21,8 @@ export class PageManager {
     this.homePage = new HomePage(this.page);
     this.navigationPage = new NavigationPage(this.page);
     this.transferPage = new TransferPage(this.page);
+    this.reviewTransferPage = new ReviewTransferPage(this.page);
+    this.transferStatusPage = new TransferStatusPage(this.page);
   }
 
   onLoginPage() {
@@ -33,5 +39,13 @@ export class PageManager {
 
   onTransferPage() {
     return this.transferPage;
+  }
+
+  onReviewTransferPage() {
+    return this.reviewTransferPage;
+  }
+
+  onTransferStatusPage() {
+    return this.transferStatusPage;
   }
 }
