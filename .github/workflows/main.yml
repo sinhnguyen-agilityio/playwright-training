@@ -18,6 +18,12 @@ jobs:
     - uses: actions/setup-node@v4
       with:
         node-version: lts/*
+    - name: Use variables
+      run: |
+        echo "repository variable : $SAUCE_USERNAME"
+        echo "organization variable : $SAUCE_ACCESS_KEY"
+        echo "overridden variable : $AGE"
+        echo "variable from shell environment : $NAME"
     - name: Install dependencies
       run: npm ci
     - name: Install Playwright Browsers
