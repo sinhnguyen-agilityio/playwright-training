@@ -29,4 +29,9 @@ jobs:
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
     - name: Run Playwright tests
+      env:
+        SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
+        SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
+        AGE: ${{ vars.AGE }}
+        NAME: ${{ vars.NAME }}
       run: npx playwright test --project=chromium
