@@ -4,8 +4,10 @@ on:
   workflow_dispatch:
 
 env:
-  SAUCE_USERNAME: SAUCE_USERNAME
-  SAUCE_ACCESS_KEY: SAUCE_ACCESS_KEY
+  SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
+  SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
+  AGE: ${{ vars.AGE }}
+  NAME: ${{ vars.NAME }}
 
 jobs:
   test:
