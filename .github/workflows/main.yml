@@ -44,5 +44,7 @@ jobs:
           env: |
             AGE=${{ vars.AGE }}
             NAME=${{ vars.NAME }}
+            SAUCE_USERNAME=${{ secrets.SAUCE_USERNAME }}
+            SAUCE_ACCESS_KEY=${{ secrets.SAUCE_ACCESS_KEY }}
 
 
