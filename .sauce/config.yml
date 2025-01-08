@@ -13,13 +13,6 @@ playwright:
 # Controls what files are available in the context of a test run (unless explicitly excluded by .sauceignore).
 rootDir: ./
 suites:
-  # - name: "Firefox Win"
-  #   platformName: "Windows 11"
-  #   screenResolution: "1440x900"
-  #   testMatch: [".*.ts"]
-  #   params:
-  #     browserName: "firefox"
-  #     project: "firefox" # Runs the project that's defined in `playwright.config.js`
   - name: "Chromium Mac"
     platformName: "macOS 12"
     screenResolution: "1440x900"
@@ -28,12 +21,6 @@ suites:
       browserName: "chromium"
       project: "chromium"
 
-thresholds:
-  - pass: 80
-  - duration: 30
-
 reporters:
   spotlight: # Prints an overview of failed or otherwise interesting jobs.
     enabled: true
-
-    # ./sc -u oauth-sinh.nguyen-945bb -k 8652b13c-34ba-4209-adba-e07d888aba05 --region eu-central-1 --tunnel-name oauth-sinh.nguyen-945bb_tunnel_name
