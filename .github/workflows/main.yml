@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
 
 env:
-  SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME || 'default_username' }}
+  SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
   SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
   AGE: ${{ vars.AGE }}
   NAME: ${{ vars.NAME }}
@@ -30,3 +30,9 @@ jobs:
       run: npx playwright install --with-deps
     - name: Run Playwright tests
       run: npx playwright test --project=chromium
+      env:
+        SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
+        SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
+        AGE: ${{ vars.AGE }}
+        NAME: ${{ vars.NAME }}
+      
