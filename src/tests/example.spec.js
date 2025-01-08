@@ -7,5 +7,9 @@ test.describe('Verify login feature', () => {
     console.log('AGE', process.env.AGE);
     console.log('NAME', process.env.NAME);
     expect(true).toBeTruthy();
+    expect(process.env.SAUCE_USERNAME).toEqual('SAUCE_USERNAME_VALUE');
+    expect(process.env.SAUCE_ACCESS_KEY).toEqual('SAUCE_ACCESS_KEY_VALUE');
+    expect(process.env.AGE).toEqual('age1');
+    expect(process.env.NAME).toEqual('value1');
   })
 });
