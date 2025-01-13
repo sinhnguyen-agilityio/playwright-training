@@ -13,13 +13,14 @@
     "@types/node": "^22.4.2",
     "eslint": "^9.9.0",
     "globals": "^15.9.0",
-    "typescript-eslint": "^8.2.0",
-    "saucectl": "^0.170.0"
+    "saucectl": "^0.170.0",
+    "typescript-eslint": "^8.2.0"
   },
   "scripts": {
-    "lint": "eslint './src/**/*.{ts,js}'"
+    "lint": "eslint './src/**/*.{ts,js}'",
+    "test:sauce": "dotenv -e .env -- saucectl run"
   },
   "dependencies": {
-    "dotenv": "^16.4.5"
+    "dotenv": "^16.4.7"
   }
 }
