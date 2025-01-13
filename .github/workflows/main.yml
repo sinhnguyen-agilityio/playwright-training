@@ -10,7 +10,7 @@ on:
 
 env:
   GITHUB_TOKEN: ${{ github.token }}
-  
+
 
 jobs:
   test:
@@ -29,8 +29,6 @@ jobs:
           sauce-access-key: ${{ secrets.SAUCE_ACCESS_KEY }}
           env: |
             AGE=${{ vars.AGE }}
-            NAME=${{ vars.NAME }}
-            SAUCE_USERNAME=${{ secrets.SAUCE_USERNAME }}
-            SAUCE_ACCESS_KEY=${{ secrets.SAUCE_ACCESS_KEY }}
+            NAME_VALUE=${{ vars.NAME_VALUE }}
 
 
