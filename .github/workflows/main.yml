@@ -29,6 +29,6 @@ jobs:
           sauce-access-key: ${{ secrets.SAUCE_ACCESS_KEY }}
           env: |
             AGE=${{ vars.AGE }}
-            NAME_VALUE=${{ vars.NAME_VALUE }}
+            NAME_VALUE=${{ vars }}
 
 
